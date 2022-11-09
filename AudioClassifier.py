@@ -28,7 +28,7 @@ CHUNKSIZE = 1024
 p = pyaudio.PyAudio()
 
  #Set up YAMNet variables
-interpreter = tf.lite.Interpreter('/Users/devansh/Desktop/RTAC/lite-model_yamnet_tflite_1.tflite')
+interpreter = tf.lite.Interpreter('lite-model_yamnet_tflite_1.tflite')
 input_details = interpreter.get_input_details()
 waveform_input_index = input_details[0]['index']
 output_details = interpreter.get_output_details()
@@ -37,7 +37,7 @@ embeddings_output_index = output_details[1]['index']
 spectrogram_output_index = output_details[2]['index']
 
 # Download the YAMNet class map to yamnet_class_map.csv
-class_names = class_names_from_csv(open('/Users/devansh/Desktop/RTAC/yamnet_class_map.csv').read())
+class_names = class_names_from_csv(open('yamnet_class_map.csv').read())
 
 #Decide length of audio analysis loop. 
 loopLength = 100 #Decide real-time loop length in seconds
